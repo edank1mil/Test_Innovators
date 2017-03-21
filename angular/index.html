@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title></title>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css
+">
+</head>
+<body ng-app="app" ng-controller = "mainCtrl">
+	<ui-view></ui-view>
+	<table class="table table-striped">
+		<thead>
+			
+			<th>Status</th>
+			<th>User Id</th>
+			<th>valid</th>		
+			<th>Correct</th>
+			<th>Incorrect</th>
+			<th>Blank</th>
+			<th>Date Completed</th>
+			<th>Section</th>	
+			<th>Action</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in rows">
+				
+				<td>{{row.status}}</td>
+				<td>{{row.userID}}</td>
+				<td>{{row.valid}}</td>
+				<td>{{row.correct}}</td>
+				<td>{{row.incorrect}}</td>
+				<td>{{row.blank}}</td>
+				<td>{{row.completed | date}}</td>
+				<td>{{row.sectionType}}</td>			
+				<td><button class="btn btn-primary" ng-click = checkStatus(row.ID)>Verify</button></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
